@@ -1,0 +1,71 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "movieId",
+				"type": "uint256"
+			}
+		],
+		"name": "movies",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "creator",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "trailerIpfsUri",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "movieIpMetadataIpfsUri",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "movieNftMetadataIpfsUri",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "platformRentalPrice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "rentalPaymentToken",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "status",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "platformLikes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "rentalCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "storyIpId",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "storyLicenseTermsId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
