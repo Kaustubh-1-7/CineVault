@@ -10,31 +10,6 @@
 				"internalType": "address payable",
 				"name": "_platformRevenueWallet",
 				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sLicenseAttachmentWorkflowsAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sRoyaltyModuleAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sPilTemplateAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sRoyaltyPolicyLapAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sSpgNftContractAddr",
-				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -62,68 +37,6 @@
 		"type": "error"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_moderator",
-				"type": "address"
-			}
-		],
-		"name": "addModerator",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_operator",
-				"type": "address"
-			}
-		],
-		"name": "addOperator",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_movieId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_storyIpId",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_storyLicenseTermsId",
-				"type": "uint256"
-			}
-		],
-		"name": "confirmStoryIpRegistered",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_movieId",
-				"type": "uint256"
-			}
-		],
-		"name": "confirmStoryRoyaltySet",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "EnforcedPause",
 		"type": "error"
@@ -134,103 +47,54 @@
 		"type": "error"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "grantRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_movieId",
-				"type": "uint256"
-			}
-		],
-		"name": "incrementRentalCount",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_movieId",
-				"type": "uint256"
-			}
-		],
-		"name": "likeMovie",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "ReentrancyGuardReentrantCall",
-		"type": "error"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "movieId",
 				"type": "uint256"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "address",
 				"name": "user",
 				"type": "address"
 			}
 		],
-		"name": "MovieLiked",
+		"name": "MovieLikedOnPlatform",
 		"type": "event"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "movieId",
 				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"internalType": "enum ContentManager.MovieStatus",
+				"internalType": "enum ContentManager.MoviePlatformStatus",
 				"name": "status",
 				"type": "uint8"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "address",
 				"name": "moderator",
 				"type": "address"
 			}
 		],
-		"name": "MovieModerated",
+		"name": "MovieModeratedOnPlatform",
 		"type": "event"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "movieId",
 				"type": "uint256"
@@ -238,37 +102,24 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "newRentalCount",
+				"name": "newCount",
 				"type": "uint256"
 			}
 		],
-		"name": "MovieRentalCountIncremented",
+		"name": "MovieRentalCountIncrementedOnPlatform",
 		"type": "event"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "movieId",
-				"type": "uint256"
-			}
-		],
-		"name": "MovieRoyaltySet",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "movieId",
 				"type": "uint256"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "address",
 				"name": "storyIpId",
 				"type": "address"
@@ -280,20 +131,20 @@
 				"type": "uint256"
 			}
 		],
-		"name": "MovieStoryRegistered",
+		"name": "MovieStoryInfoUpdated",
 		"type": "event"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "movieId",
 				"type": "uint256"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "address",
 				"name": "creator",
 				"type": "address"
@@ -301,43 +152,24 @@
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "trailerIpfsUri",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieIpMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieNftMetadataIpfsUri",
+				"name": "metadata",
 				"type": "string"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "platformRentalPrice",
+				"name": "price",
 				"type": "uint256"
 			},
 			{
 				"indexed": false,
 				"internalType": "address",
-				"name": "rentalPaymentToken",
+				"name": "token",
 				"type": "address"
 			}
 		],
-		"name": "MovieSubmitted",
+		"name": "MovieSubmittedToPlatform",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "pauseContract",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -356,12 +188,6 @@
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "beneficiary",
-				"type": "address"
-			},
-			{
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "amount",
@@ -372,84 +198,23 @@
 		"type": "event"
 	},
 	{
+		"anonymous": false,
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_moderator",
-				"type": "address"
-			}
-		],
-		"name": "removeModerator",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_operator",
-				"type": "address"
-			}
-		],
-		"name": "removeOperator",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "address",
-				"name": "callerConfirmation",
-				"type": "address"
-			}
-		],
-		"name": "renounceRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
+				"indexed": false,
 				"internalType": "uint256",
-				"name": "_movieId",
+				"name": "oldFee",
 				"type": "uint256"
 			},
 			{
-				"internalType": "bool",
-				"name": "_approve",
-				"type": "bool"
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newFee",
+				"type": "uint256"
 			}
 		],
-		"name": "reviewMovie",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "role",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "revokeRole",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"name": "PlatformUploadFeeUpdated",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -527,169 +292,6 @@
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_newFee",
-				"type": "uint256"
-			}
-		],
-		"name": "setPlatformUploadFee",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [],
-		"name": "StoryAddressesUpdated",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_trailerIpfsUri",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_movieIpMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_movieNftMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_platformRentalPrice",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_rentalPaymentToken",
-				"type": "address"
-			}
-		],
-		"name": "submitMovie",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "movieId",
-				"type": "uint256"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "creator",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieIpMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieNftMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "platformRentalPrice",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "rentalPaymentToken",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "storySpgNftContractToUse",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "royaltyPolicyForTerms",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "currencyForTerms",
-				"type": "address"
-			}
-		],
-		"name": "TriggerStoryIpRegistration",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "movieId",
-				"type": "uint256"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "storyIpId",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "creator",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "platformRevenueWallet",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "platformShareBps",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "royaltyPolicyToUse",
-				"type": "address"
-			}
-		],
-		"name": "TriggerStoryRoyaltySetup",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "unpauseContract",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -703,43 +305,16 @@
 		"type": "event"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "ADMIN_OPERATOR_ROLE",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "_sLicenseAttachmentWorkflowsAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sRoyaltyModuleAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sPilTemplateAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sRoyaltyPolicyLapAddr",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_sSpgNftContractAddr",
-				"type": "address"
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
 			}
 		],
-		"name": "updateStoryAddresses",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdrawPlatformUploadFees",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -753,6 +328,68 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "MODERATOR_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "addAdminOperator",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "moderator",
+				"type": "address"
+			}
+		],
+		"name": "addModerator",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_movieId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_storyIpId",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_storyLicenseTermsId",
+				"type": "uint256"
+			}
+		],
+		"name": "confirmStoryLinking",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -779,12 +416,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "movieIpMetadataIpfsUri",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "movieNftMetadataIpfsUri",
+						"name": "movieIpfsMetadataUri",
 						"type": "string"
 					},
 					{
@@ -798,8 +430,8 @@
 						"type": "address"
 					},
 					{
-						"internalType": "enum ContentManager.MovieStatus",
-						"name": "status",
+						"internalType": "enum ContentManager.MoviePlatformStatus",
+						"name": "platformStatus",
 						"type": "uint8"
 					},
 					{
@@ -809,7 +441,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "rentalCount",
+						"name": "platformRentalCount",
 						"type": "uint256"
 					},
 					{
@@ -819,13 +451,57 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "storyLicenseTermsId",
+						"name": "storyPrimaryLicenseTermsId",
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct ContentManager.MovieData",
+				"internalType": "struct ContentManager.MoviePlatformData",
 				"name": "",
 				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "movieId",
+				"type": "uint256"
+			}
+		],
+		"name": "getMovieRentalPrerequisites",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -851,6 +527,37 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "getTotalMovies",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "bytes32",
@@ -864,6 +571,62 @@
 			}
 		],
 		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_movieId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			}
+		],
+		"name": "hasUserLikedMovie",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_movieId",
+				"type": "uint256"
+			}
+		],
+		"name": "incrementPlatformRentalCount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "isAdminOperator",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -896,30 +659,76 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "_movieId",
+				"type": "uint256"
 			}
 		],
-		"name": "isOperator",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
+		"name": "likeMovieOnPlatform",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "MODERATOR_ROLE",
+		"name": "listAllMovies",
 		"outputs": [
 			{
-				"internalType": "bytes32",
+				"components": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "trailerIpfsUri",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "movieIpfsMetadataUri",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "platformRentalPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "rentalPaymentToken",
+						"type": "address"
+					},
+					{
+						"internalType": "enum ContentManager.MoviePlatformStatus",
+						"name": "platformStatus",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "platformLikes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "platformRentalCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "storyIpId",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "storyPrimaryLicenseTermsId",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ContentManager.MoviePlatformData[]",
 				"name": "",
-				"type": "bytes32"
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -960,12 +769,7 @@
 			},
 			{
 				"internalType": "string",
-				"name": "movieIpMetadataIpfsUri",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "movieNftMetadataIpfsUri",
+				"name": "movieIpfsMetadataUri",
 				"type": "string"
 			},
 			{
@@ -979,8 +783,8 @@
 				"type": "address"
 			},
 			{
-				"internalType": "enum ContentManager.MovieStatus",
-				"name": "status",
+				"internalType": "enum ContentManager.MoviePlatformStatus",
+				"name": "platformStatus",
 				"type": "uint8"
 			},
 			{
@@ -990,7 +794,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "rentalCount",
+				"name": "platformRentalCount",
 				"type": "uint256"
 			},
 			{
@@ -1000,7 +804,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "storyLicenseTermsId",
+				"name": "storyPrimaryLicenseTermsId",
 				"type": "uint256"
 			}
 		],
@@ -1009,15 +813,9 @@
 	},
 	{
 		"inputs": [],
-		"name": "OPERATOR_ROLE",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"stateMutability": "view",
+		"name": "pauseContract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1060,68 +858,124 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "storyLicenseAttachmentWorkflowsAddr",
-		"outputs": [
+		"inputs": [
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "operator",
 				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "removeAdminOperator",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "storyPilTemplateAddr",
-		"outputs": [
+		"inputs": [
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "moderator",
 				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "removeModerator",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "storyRoyaltyModuleAddr",
-		"outputs": [
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "callerConfirmation",
 				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "storyRoyaltyPolicyLapAddr",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "_movieId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_approve",
+				"type": "bool"
 			}
 		],
-		"stateMutability": "view",
+		"name": "reviewMovieOnPlatform",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "storySpgNftContractAddr",
-		"outputs": [
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
 			{
 				"internalType": "address",
-				"name": "",
+				"name": "account",
 				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newFee",
+				"type": "uint256"
+			}
+		],
+		"name": "setPlatformUploadFee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_trailerIpfsUri",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_movieIpfsMetadataUri",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_platformRentalPrice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_rentalPaymentToken",
+				"type": "address"
+			}
+		],
+		"name": "submitMovieToPlatform",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1141,6 +995,13 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "unpauseContract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1165,6 +1026,13 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawPlatformUploadFees",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
